@@ -1,0 +1,32 @@
+From f27d9513f0ba8ec714a00675e9135ae24f3c676d Mon Sep 17 00:00:00 2001
+From: MisterZtr <andey2004586@gmail.com>
+Date: Mon Dec 9 19:00:26 2024 +0300
+Subject: overlay: props: Enable LTE_CA
+
+diff --git a/overlay/frameworks/base/core/res/res/values/config.xml b/overlay/frameworks/base/core/res/res/values/config.xml
+index b832a66..328700a 100644
+--- a/overlay/frameworks/base/core/res/res/values/config.xml
++++ b/overlay/frameworks/base/core/res/res/values/config.xml
+@@ -57,4 +57,11 @@
+     <string name="config_wlan_network_service_package">com.google.android.iwlan</string>
+   <string name="config_qualified_networks_service_package">com.android.telephony.qns</string>
+   <bool name="config_lidControlsSleep">true</bool>
++
++  <!-- Force LTE_CA -->
++  <string name="force_lte_ca">Force LTE CA</string>
++  <string name="force_lte_ca_summary">Force LTE carrier aggregation to work</string>
++
++  <!-- Show Force LTE_CA toggle -->
++  <bool name="config_showForceLteCaToggle" translatable="false">true</bool>
+ </resources>
+diff --git a/system.prop b/system.prop
+index f3c0c45..d8fba53 100644
+--- a/system.prop
++++ b/system.prop
+@@ -49,3 +49,6 @@ bluetooth.profile.sap.server.enabled?=true
+ 
+ # Samsung vendors default to a Samsung-specific gadget for MTP. Set this to use AOSP's functionfs MTP
+ vendor.usb.use_ffs_mtp=1
++
++# Force LTE_CA
++persist.sys.radio.force_lte_ca=true
