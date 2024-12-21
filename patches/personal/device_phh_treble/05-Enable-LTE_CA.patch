@@ -3,22 +3,33 @@ From: MisterZtr <andey2004586@gmail.com>
 Date: Mon Dec 9 19:00:26 2024 +0300
 Subject: overlay: props: Enable LTE_CA
 
-diff --git a/overlay/frameworks/base/core/res/res/values/config.xml b/overlay/frameworks/base/core/res/res/values/config.xml
-index b832a66..328700a 100644
---- a/overlay/frameworks/base/core/res/res/values/config.xml
-+++ b/overlay/frameworks/base/core/res/res/values/config.xml
-@@ -57,4 +57,11 @@
-     <string name="config_wlan_network_service_package">com.google.android.iwlan</string>
-   <string name="config_qualified_networks_service_package">com.android.telephony.qns</string>
-   <bool name="config_lidControlsSleep">true</bool>
+diff --git a/overlay/packages/apps/Settings/res/values-ru/config.xml b/overlay/packages/apps/Settings/res/values-ru/config.xml
+new file mode 100644
+index 0000000..0cfcc4c
+--- /dev/null
++++ b/overlay/packages/apps/Settings/res/values-ru/config.xml
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="utf-8"?>
++<resources>
++<!-- Force LTE_CA -->
++<string name="force_lte_ca">Агрегация частот</string>
++<string name="force_lte_ca_summary">Этот параметр заставляет принудительно работать агрегацию частот</string>
++</resources>
+diff --git a/overlay/packages/apps/Settings/res/values/config.xml b/overlay/packages/apps/Settings/res/values/config.xml
+new file mode 100644
+index 0000000..ccef9e8
+--- /dev/null
++++ b/overlay/packages/apps/Settings/res/values/config.xml
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="utf-8"?>
++<resources>
++<!-- Force LTE_CA -->
++<string name="force_lte_ca">Force LTE CA</string>
++<string name="force_lte_ca_summary">Force LTE carrier aggregation to work</string>
 +
-+  <!-- Force LTE_CA -->
-+  <string name="force_lte_ca">Force LTE CA</string>
-+  <string name="force_lte_ca_summary">Force LTE carrier aggregation to work</string>
-+
-+  <!-- Show Force LTE_CA toggle -->
-+  <bool name="config_showForceLteCaToggle" translatable="false">true</bool>
- </resources>
++<!-- Show Force LTE_CA toggle -->
++<bool name="config_showForceLteCaToggle" translatable="false">true</bool>
++</resources>
 diff --git a/system.prop b/system.prop
 index f3c0c45..d8fba53 100644
 --- a/system.prop
