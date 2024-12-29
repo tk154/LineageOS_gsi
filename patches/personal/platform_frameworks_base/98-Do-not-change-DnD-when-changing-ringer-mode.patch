@@ -1,0 +1,53 @@
+From bc5a1c3e131064dda1a51a33a37e565f2e692ade Mon Sep 17 00:00:00 2001
+From: Til Kaiser <mail@tk154.de>
+Date: Thu, 9 Jan 2025 21:14:26 +0100
+Subject: [PATCH] Do not change DnD when changing ringer mode
+
+Change-Id: I99c4ffafc52732b139d35ff1c56a2928a6d11b90
+---
+ .../server/notification/ZenModeHelper.java    | 29 +------------------
+ 1 file changed, 1 insertion(+), 28 deletions(-)
+
+diff --git a/services/core/java/com/android/server/notification/ZenModeHelper.java b/services/core/java/com/android/server/notification/ZenModeHelper.java
+index 626c3ddd49d9..2380e62723e0 100644
+--- a/services/core/java/com/android/server/notification/ZenModeHelper.java
++++ b/services/core/java/com/android/server/notification/ZenModeHelper.java
+@@ -2611,34 +2611,7 @@ public class ZenModeHelper {
+         @Override
+         public int onSetRingerModeExternal(int ringerModeOld, int ringerModeNew,
+                 @Nullable String caller, int ringerModeInternal, VolumePolicy policy) {
+-            int ringerModeInternalOut = ringerModeNew;
+-            final boolean isChange = ringerModeOld != ringerModeNew;
+-            final boolean isVibrate = ringerModeInternal == AudioManager.RINGER_MODE_VIBRATE;
+-
+-            int newZen = -1;
+-            switch (ringerModeNew) {
+-                case AudioManager.RINGER_MODE_SILENT:
+-                    if (isChange) {
+-                        if (mZenMode == Global.ZEN_MODE_OFF) {
+-                            newZen = Global.ZEN_MODE_IMPORTANT_INTERRUPTIONS;
+-                        }
+-                        ringerModeInternalOut = isVibrate ? AudioManager.RINGER_MODE_VIBRATE
+-                                : AudioManager.RINGER_MODE_SILENT;
+-                    } else {
+-                        ringerModeInternalOut = ringerModeInternal;
+-                    }
+-                    break;
+-                case AudioManager.RINGER_MODE_VIBRATE:
+-                case AudioManager.RINGER_MODE_NORMAL:
+-                    if (mZenMode != Global.ZEN_MODE_OFF) {
+-                        newZen = Global.ZEN_MODE_OFF;
+-                    }
+-                    break;
+-            }
+-            if (newZen != -1) {
+-                setManualZenMode(newZen, null, ORIGIN_SYSTEM,
+-                        "ringerModeExternal", caller, false /*setRingerMode*/, Process.SYSTEM_UID);
+-            }
++            final int ringerModeInternalOut = ringerModeNew;
+ 
+             ZenLog.traceSetRingerModeExternal(ringerModeOld, ringerModeNew, caller,
+                     ringerModeInternal, ringerModeInternalOut);
+-- 
+2.47.1
+
