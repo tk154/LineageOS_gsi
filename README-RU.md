@@ -1,5 +1,5 @@
 Русский | [English](README.md)
-### Чтобы приступить к компиляции LineageOS 22 GSI,
+### Чтобы приступить к компиляции LineageOS 22.1 GSI,
 Вам нужно будет ознакомиться с [Git and Repo](https://source.android.com/source/using-repo.html), [Как собрать GSI](https://github.com/phhusson/treble_experimentations/wiki/How-to-build-a-GSI%3F), а также с темой на 4pda по [Сборке Android из исходников](https://4pda.to/forum/index.php?showtopic=209610&view=findpost&p=6112304)
 
 
@@ -16,7 +16,7 @@ cd LineageOS
 ### Чтобы инициализировать локальный репозиторий, выполните эту команду:
 
 ```bash
-repo init -u https://github.com/LineageOS/android.git -b lineage-22.0 --git-lfs
+repo init -u https://github.com/MisterZtr/android.git -b lineage-22.1 --git-lfs
 ```
 
 

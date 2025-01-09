@@ -1,5 +1,5 @@
 English | [Русский](README-RU.md)
-### To get started with building LineageOS 22 GSI,
+### To get started with building LineageOS 22.1 GSI,
 You'll need to get familiar with [Git and Repo](https://source.android.com/source/using-repo.html) as well as [How to build a GSI](https://github.com/phhusson/treble_experimentations/wiki/How-to-build-a-GSI%3F).
 
 
@@ -16,7 +16,7 @@ cd LineageOS
 ### To initialize your local repository, run this command:
 
 ```bash
-repo init -u https://github.com/LineageOS/android.git -b lineage-22.0 --git-lfs
+repo init -u https://github.com/MisterZtr/android.git -b lineage-22.1 --git-lfs
 ```
  
 

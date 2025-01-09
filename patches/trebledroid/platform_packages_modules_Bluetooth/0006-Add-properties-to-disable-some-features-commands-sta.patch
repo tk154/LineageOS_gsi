@@ -1,4 +1,4 @@
-From a88d76dfc38245be6b72065c2a8305e7e590582f Mon Sep 17 00:00:00 2001
+From f0158f8a9d0e97b7e97168524ba3a670af0a6073 Mon Sep 17 00:00:00 2001
 From: Pierre-Hugues Husson <phh@phh.me>
 Date: Sat, 27 May 2023 06:41:32 -0400
 Subject: [PATCH 6/9] Add properties to disable some features/commands/states
@@ -9,7 +9,7 @@ Subject: [PATCH 6/9] Add properties to disable some features/commands/states
  1 file changed, 69 insertions(+), 4 deletions(-)
 
 diff --git a/system/gd/hci/controller.cc b/system/gd/hci/controller.cc
-index cfb2ed1b28..ad2964b3f5 100644
+index 759fe5d93e..6e68cdaf20 100644
 --- a/system/gd/hci/controller.cc
 +++ b/system/gd/hci/controller.cc
 @@ -20,6 +20,7 @@
@@ -20,7 +20,7 @@ index cfb2ed1b28..ad2964b3f5 100644
  #include <future>
  #include <memory>
  #include <string>
-@@ -38,6 +39,8 @@
+@@ -37,6 +37,8 @@
  #include "sysprops/sysprops_module.h"
  #endif
  
@@ -29,7 +29,7 @@ index cfb2ed1b28..ad2964b3f5 100644
  namespace bluetooth {
  namespace hci {
  
-@@ -334,7 +337,23 @@ struct Controller::impl {
+@@ -353,7 +355,23 @@ struct Controller::impl {
      ASSERT(complete_view.IsValid());
      ErrorCode status = complete_view.GetStatus();
      log::assert_that(status == ErrorCode::SUCCESS, "Status {}", ErrorCodeText(status));
@@ -54,14 +54,14 @@ index cfb2ed1b28..ad2964b3f5 100644
  
      if (auto disabledCommands = os::GetSystemProperty(kPropertyDisabledCommands)) {
        for (const auto& command : android::base::Split(*disabledCommands, ",")) {
-@@ -352,7 +371,25 @@ struct Controller::impl {
+@@ -372,7 +390,25 @@ struct Controller::impl {
      ErrorCode status = complete_view.GetStatus();
      log::assert_that(status == ErrorCode::SUCCESS, "Status {}", ErrorCodeText(status));
      uint8_t page_number = complete_view.GetPageNumber();
 -    extended_lmp_features_array_.push_back(complete_view.GetExtendedLmpFeatures());
 +
 +    //extended_lmp_features_array_.push_back(complete_view.GetExtendedLmpFeatures());
-+    auto lmp_features = complete_view.GetExtendedLmpFeatures();
++   auto lmp_features = complete_view.GetExtendedLmpFeatures();
 +
 +    std::string ignored_features = GetSystemProperty("persist.sys.bt.unsupported.ogfeatures").value_or("");
 +
@@ -78,10 +78,10 @@ index cfb2ed1b28..ad2964b3f5 100644
 +    }
 +    extended_lmp_features_array_.push_back(lmp_features);
 +
-     bluetooth::os::LogMetricBluetoothLocalSupportedFeatures(page_number, complete_view.GetExtendedLmpFeatures());
-     // Query all extended features
-     if (page_number < complete_view.GetMaximumPageNumber()) {
-@@ -504,7 +541,21 @@ struct Controller::impl {
+     if (page_number == 0 && local_version_information_.manufacturer_name_ == LMP_COMPID_INTEL &&
+         local_version_information_.lmp_version_ == LmpVersion::V_4_2 &&
+         local_version_information_.lmp_subversion_ == LMP_SUBVERSION_INTEL_AC7265) {
+@@ -535,7 +571,21 @@ struct Controller::impl {
      ASSERT(complete_view.IsValid());
      ErrorCode status = complete_view.GetStatus();
      log::assert_that(status == ErrorCode::SUCCESS, "Status {}", status, ErrorCodeText(status));
@@ -104,7 +104,7 @@ index cfb2ed1b28..ad2964b3f5 100644
    }
  
    void le_read_supported_states_handler(CommandCompleteView view) {
-@@ -512,7 +563,21 @@ struct Controller::impl {
+@@ -543,7 +593,21 @@ struct Controller::impl {
      ASSERT(complete_view.IsValid());
      ErrorCode status = complete_view.GetStatus();
      log::assert_that(status == ErrorCode::SUCCESS, "Status {}", ErrorCodeText(status));
@@ -129,3 +129,4 @@ index cfb2ed1b28..ad2964b3f5 100644
    void le_read_accept_list_size_handler(CommandCompleteView view) {
 -- 
 2.25.1
+

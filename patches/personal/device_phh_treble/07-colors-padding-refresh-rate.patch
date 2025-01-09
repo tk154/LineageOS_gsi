@@ -4,16 +4,16 @@ Date: Sat Dec 21 13:36:37 2024 +0300
 Subject: overlay: colors,padding,refresh-rate
 
 diff --git a/overlay/frameworks/base/core/res/res/values/config.xml b/overlay/frameworks/base/core/res/res/values/config.xml
-index b832a66..83ccf1d 100644
+index b832a66..cf13f9c 100644
 --- a/overlay/frameworks/base/core/res/res/values/config.xml
 +++ b/overlay/frameworks/base/core/res/res/values/config.xml
 @@ -32,19 +32,14 @@
-        <bool name="config_smart_battery_available">true</bool>
-        <dimen name="config_dialogCornerRadius">8.0dip</dimen>
-        <dimen name="config_buttonCornerRadius">4.0dip</dimen>
+ 	<bool name="config_smart_battery_available">true</bool>
+ 	<dimen name="config_dialogCornerRadius">8.0dip</dimen>
+ 	<dimen name="config_buttonCornerRadius">4.0dip</dimen>
 +    <dimen name="status_bar_padding_start">18.0dip</dimen>
  
-        <bool name="config_cellBroadcastAppLinks">true</bool>
+ 	<bool name="config_cellBroadcastAppLinks">true</bool>
  
 -    <array name="config_availableColorModes">
 -        <!-- ColorDisplayManager.COLOR_MODE_NATURAL -->
@@ -26,7 +26,7 @@ index b832a66..83ccf1d 100644
 -        <item>3</item>
 -    </array>
 +    <integer-array name="config_availableColorModes">
-+          <item>0</item> <!-- COLOR_MODE_NATURAL -->
++       <item>0</item> <!-- COLOR_MODE_NATURAL -->
 +       <item>3</item> <!-- COLOR_MODE_AUTOMATIC -->
 +    </integer-array>
  
