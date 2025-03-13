@@ -16,7 +16,7 @@ cd LineageOS
 ### To initialize your local repository, run this command:
 
 ```bash
-repo init -u https://github.com/MisterZtr/android.git -b lineage-22.1 --git-lfs
+repo init -u https://github.com/MisterZtr/LineageOS-android.git -b lineage-22.1 --git-lfs
 ```
  
 
