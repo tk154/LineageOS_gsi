@@ -28,7 +28,7 @@ repo init -u https://github.com/MisterZtr/LineageOS-android.git -b lineage-22.1 
 ### После этого синхронизируйте исходный код, выполнив эту команду:
 
 ```bash
-repo sync --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all)
+repo sync --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j4
 ```
 
 
