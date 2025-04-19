@@ -4,13 +4,13 @@ Date: Mon Dec 9 06:16:57 2024 +0300
 Subject: Settings: Add a toggle to force LTE_CA
 
 diff --git a/res/values/config.xml b/res/values/config.xml
-index 4b638b25552..4bcc1bc8d9f 100644
+index 95f8eba8f84..fc7bf461937 100644
 --- a/res/values/config.xml
 +++ b/res/values/config.xml
-@@ -839,4 +839,8 @@
+@@ -845,4 +845,8 @@
  
-     <!-- Package name for diagnostics app. -->
-     <string name="config_device_diagnostics_package_name" translatable="false">com.android.devicediagnostics</string>
+     <!-- Disable the Testing Setting Menu for user builds, i.e only display the menu on userdebug/eng builds -->
+     <bool name="config_hide_testing_settings_menu_for_user_builds">false</bool>
 +
 +    <!-- Force LTE_CA -->
 +    <string name="force_lte_ca">Force LTE CA</string>

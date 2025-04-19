@@ -7,7 +7,7 @@ diff --git a/lineage.mk b/lineage.mk
 index 172bb01..f737418 100644
 --- a/lineage.mk
 +++ b/lineage.mk
-@@ -1,3 +1,15 @@
+@@ -1,3 +1,16 @@
 +$(call inherit-product, vendor/lineage/config/common_full_tablet.mk)
  $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 +$(call inherit-product, vendor/lineage/config/BoardConfigSoong.mk)
@@ -21,6 +21,7 @@ index 172bb01..f737418 100644
 +
 +# Face unlock
 +TARGET_FACE_UNLOCK_SUPPORTED := true
++PRODUCT_PACKAGES += FaceUnlock
 +
 +# APN
 +PRODUCT_PACKAGES += apns-conf.xml

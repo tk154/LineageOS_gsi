@@ -13,21 +13,22 @@ Change-Id: Ia616671c03562d1eadaff5531a5c708a62d7ad3a
  1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/services/core/java/com/android/server/StorageManagerService.java b/services/core/java/com/android/server/StorageManagerService.java
-index 456b4d94fbe8..16e639f24c82 100644
+index b7bc4e4827ef..eb9307c3c9ca 100644
 --- a/services/core/java/com/android/server/StorageManagerService.java
 +++ b/services/core/java/com/android/server/StorageManagerService.java
-@@ -1633,9 +1633,8 @@ class StorageManagerService extends IStorageManager.Stub
+@@ -1634,10 +1634,8 @@ class StorageManagerService extends IStorageManager.Stub
  
              // Adoptable public disks are visible to apps, since they meet
              // public API requirement of being in a stable location.
 -            if (vol.disk.isAdoptable()) {
 -                vol.mountFlags |= VolumeInfo.MOUNT_FLAG_VISIBLE_FOR_WRITE;
 -            } else if (vol.disk.isSd()) {
-+           // Assume all SDs match this as well
+-                vol.mountFlags |= VolumeInfo.MOUNT_FLAG_VISIBLE_FOR_WRITE;
++            // Assume all SDs match this as well
 +            if (vol.disk.isAdoptable() || vol.disk.isSd()) {
-                 vol.mountFlags |= VolumeInfo.MOUNT_FLAG_VISIBLE_FOR_WRITE;
              }
  
+             vol.mountUserId = mCurrentUserId;
 -- 
 2.25.1
 
