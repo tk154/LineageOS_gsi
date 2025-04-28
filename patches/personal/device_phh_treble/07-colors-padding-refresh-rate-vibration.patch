@@ -1,17 +1,17 @@
 From dccffd60fc863d4c089201e15fadb53cb971e5a4 Mon Sep 17 00:00:00 2001
 From: MisterZtr <andey2004586@gmail.com>
-Date: Sat Dec 21 13:36:37 2024 +0300
-Subject: overlay: colors,padding,refresh-rate
+Date: Sun Apr 28 10:10:00 2025 +0300
+Subject: overlay: colors,padding,refresh-rate,vibration
 
 diff --git a/overlay/frameworks/base/core/res/res/values/config.xml b/overlay/frameworks/base/core/res/res/values/config.xml
-index b832a66..cf13f9c 100644
+index b832a66..063ca3b 100644
 --- a/overlay/frameworks/base/core/res/res/values/config.xml
 +++ b/overlay/frameworks/base/core/res/res/values/config.xml
 @@ -32,19 +32,14 @@
  	<bool name="config_smart_battery_available">true</bool>
  	<dimen name="config_dialogCornerRadius">8.0dip</dimen>
  	<dimen name="config_buttonCornerRadius">4.0dip</dimen>
-+    <dimen name="status_bar_padding_start">18.0dip</dimen>
++	<dimen name="status_bar_padding_start">18.0dip</dimen>
  
  	<bool name="config_cellBroadcastAppLinks">true</bool>
  
@@ -44,10 +44,10 @@ index 765848e..39c6e84 100644
 +    <dimen name="status_bar_padding_start">18.0dip</dimen>
  </resources>
 diff --git a/overlay/packages/apps/Settings/res/values/config.xml b/overlay/packages/apps/Settings/res/values/config.xml
-index ccef9e8..770ed92 100644
+index ccef9e8..abbd0e7 100644
 --- a/overlay/packages/apps/Settings/res/values/config.xml
 +++ b/overlay/packages/apps/Settings/res/values/config.xml
-@@ -6,4 +6,10 @@
+@@ -6,4 +6,13 @@
  
  <!-- Show Force LTE_CA toggle -->
  <bool name="config_showForceLteCaToggle" translatable="false">true</bool>
@@ -57,4 +57,8 @@ index ccef9e8..770ed92 100644
 +
 +<!-- Whether to show min refresh rate in display settings -->
 +<bool name="config_show_min_refresh_rate_switch">true</bool>
++
++<!-- The number of vibration intensity levels supported by the device -->
++<integer name="config_vibration_supported_intensity_levels">3</integer>
  </resources>
+
