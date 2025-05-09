@@ -43,6 +43,16 @@ index 0f7231b6..328d1504 100644
      <string name="start_chat">开始聊天</string>
 +    <string name="notification_mark_as_read">标记为已读</string>
  </resources>
+diff --git a/res/values-ru/cm_strings.xml b/res/values-ru/cm_strings.xml
+index 21efa7f..0bcfcbc 100644
+--- a/res/values-ru/cm_strings.xml
++++ b/res/values-ru/cm_strings.xml
+@@ -19,4 +19,5 @@
+     <string name="swipe_to_delete_conversation_pref_summary">Свайп вправо для удаления разговора</string>
+     <string name="notification_channel_messages_title">Сообщения</string>
+     <string name="start_chat">Написать</string>
++    <string name="notification_mark_as_read">Прочитать</string>
+ </resources>
 diff --git a/res/values/cm_strings.xml b/res/values/cm_strings.xml
 index e2c26e56..1e29d848 100644
 --- a/res/values/cm_strings.xml
