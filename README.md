@@ -104,7 +104,7 @@ If you face any conflicts while applying patches, apply the patch manually
 
 ## Credits
 These people have helped this project in some way or another, so they should be the ones who receive all the credit:
-- [crDroid Team](https://github.com/crdroidandroid)
+- [LineageOS Team](https://github.com/LineageOS)
 - [Phhusson](https://github.com/phhusson)
 - [AndyYan](https://github.com/AndyCGYan)
 - [Ponces](https://github.com/ponces)
@@ -113,3 +113,4 @@ These people have helped this project in some way or another, so they should be 
 - [ChonDoit](https://github.com/ChonDoit)
 - [Nazim N ](https://github.com/naz664)
 - [Ahnet](https://github.com/ahnet-69)
+- [mytja](https://github.com/mytja)

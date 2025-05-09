@@ -103,7 +103,7 @@ cd out/target/product/tdgsi_arm64_ab
 
 ## Благодарности
 Эти люди так или иначе помогали проекту, поэтому именно они должны получить все почести:
-- [crDroid Team](https://github.com/crdroidandroid)
+- [LineageOS Team](https://github.com/LineageOS)
 - [Phhusson](https://github.com/phhusson)
 - [AndyYan](https://github.com/AndyCGYan)
 - [Ponces](https://github.com/ponces)
@@ -112,3 +112,4 @@ cd out/target/product/tdgsi_arm64_ab
 - [ChonDoit](https://github.com/ChonDoit)
 - [Nazim N ](https://github.com/naz664)
 - [Ahnet](https://github.com/ahnet-69)
+- [mytja](https://github.com/mytja)
